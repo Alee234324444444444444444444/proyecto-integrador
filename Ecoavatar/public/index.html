@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MiProyecto</title>
+    <link rel="stylesheet" href="styles.css">
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="public/css/styles.css" />
+    <script>
+      const addPostUrl = "/add-post"; <!-- Reemplaza con la URL correspondiente -->
+    </script>
+    <style>
+      a {
+        text-decoration: none;
+      }
+    </style>
+  </head>
+
+  <body>
+    <!-- Barra de navegación -->
+    <nav class="navbar">
+      <div class="navbar-brand">
+        <a href="#" class="logo">
+          <img src="public/images/logo.png" alt="logo" />
+        </a>
+      </div>
+      <ul class="navbar-links">
+        <li><a href="/">Inicio</a></li>
+        <li><a href="/publicaciones">Publicaciones</a></li>
+        <li><a href="#challenges">Desafíos</a></li>
+      </ul>
+      <div class="navbar-actions">
+        <a class="login-btn" href="/login">Iniciar Sesión</a>
+        <!-- Opción de cerrar sesión (desactivada sin autenticación dinámica) -->
+      </div>
+    </nav>
+
+    <!-- Encabezado -->
+    <div class="header-content">
+      <h1>¡Bienvenido a nuestro mundo!</h1>
+      <h2>
+        Explora y participa en desafíos que cuidan el planeta. ¡Haz tu impacto
+        positivo!
+      </h2>
+    </div>
+
+    <div>
+      <h4 style="text-align: center;">
+        <big>Un personaje virtual que trata de cumplir desafíos en el mundo real</big>
+      </h4>
+    </div>
+
+    <!-- Lienzo del personaje -->
+    <div class="caracter">
+      <h1>Adán</h1>
+      <canvas
+        id="pixelCanvas"
+        data-sprite-sheet="public/images/character.png"
+        data-hat="public/images/hat.png"
+      ></canvas>
+      <div class="actions">
+        <button
+          class="equipar-btn"
+          data-personaje-id="1" <!-- Reemplaza con tu lógica -->
+          data-recompensa-id="1" <!-- Reemplaza con tu lógica -->
+          onclick="equipReward(this)"
+        >
+          Equipar Recompensa
+        </button>
+      </div>
+    </div>
+
+    <!-- Modal para completar desafío -->
+    <div id="challengeModal" class="modal">
+      <div class="modal-content">
+        <h2 style="text-align: center;">¡Felicidades por completar el desafío!</h2>
+        <p>Sube una foto para demostrar que has completado el desafío.</p>
+
+        <form id="challengeForm" enctype="multipart/form-data" action="/add-post" method="POST">
+          <input type="file" name="photo" id="challengePhoto" accept="image/*" required />
+          <textarea
+            name="description"
+            id="challengeDescription"
+            placeholder="Describe cómo completaste el desafío"
+            rows="4"
+            maxlength="75"
+            required
+          ></textarea>
+        </form>
+
+        <!-- Botones estilizados -->
+        <div class="modal-buttons">
+          <button type="button" id="submitPost" class="btn-submit">Subir Publicación</button>
+          <button type="button" class="btn-close" onclick="closeModal()">Cerrar</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Sección de Desafíos -->
+    <section id="challenges" class="challenges-container">
+      <h2>Desafíos Activos</h2>
+
+      <h3>Desafíos Diarios</h3>
+      <ul>
+        <li>
+          <strong>Reciclar</strong>: Lleva tu reciclaje al punto más cercano.
+          <button class="completar-btn" data-desafio-id="1" onclick="openChallengeModal(this)">
+            Completar
+          </button>
+        </li>
+      </ul>
+
+      <h3>Desafíos Semanales</h3>
+      <ul>
+        <li>
+          <strong>Plantación</strong>: Planta un árbol en tu comunidad.
+          <button class="completar-btn" data-desafio-id="2" onclick="openChallengeModal(this)">
+            Completar
+          </button>
+        </li>
+      </ul>
+    </section>
+
+    <!-- Sección de Publicaciones -->
+    <section id="publicaciones" class="publicaciones">
+      <div class="foro">
+        <h3>Foro de Discusión</h3>
+        <input type="file" id="foto-perfil" accept="image/*" class="foto-perfil" />
+        <textarea class="foro-textarea" placeholder="Escribe un comentario..." rows="4"></textarea>
+        <button class="btn-publicar">Publicar</button>
+
+        <ul class="comentarios">
+          <!-- Comentarios se agregarán aquí -->
+        </ul>
+      </div>
+    </section>
+
+    <script src="public/js/script.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  </body>
+
+  <script>
+    function redirectToLogin(event) {
+      event.preventDefault(); // Evita la acción predeterminada del enlace
+      window.location.href = "/login"; // Redirige a la página de login
+    }
+  </script>
+</html>

@@ -1,0 +1,477 @@
+/* Globales */
+body {
+    background-color: #f4f0e5;
+    font-family: 'Poppins', sans-serif;
+    font-weight:600;
+    margin: 0;
+    padding: 0;
+    color: #333;
+}
+
+/* Navbar */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #151d26;
+    padding: 10px 20px;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+.navbar-brand .logo img {
+    width: 80px;
+    height: 55px; 
+    border-radius: 15px; 
+    object-fit: fill; 
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); /
+}
+/* Animación */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+
+.navbar-brand {
+    display: flex;
+    align-items: center;
+}
+
+
+.navbar-brand .brand-name {
+    font-size: 1.5em;
+    font-weight: bolder;
+    color: #f0f4f8;
+}
+
+.navbar-links {
+    list-style: none;
+    display: flex;
+    gap: 15px;
+}
+
+.navbar-links a {
+    color: #f0f4f8;
+    text-decoration: none;
+    font-weight: bold;
+    padding: 8px 15px;
+    border-radius: 10px;
+    transition: background-color 0.3s;
+}
+
+.navbar-links a:hover {
+    background-color: #426a8c;
+}
+
+.navbar-actions .login-btn {
+    background-color: #81231e;
+    color: white;
+    font-size: 1.2em;
+    font-weight: bold;
+    padding: 10px 20px;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    border: none;
+}
+
+.navbar-actions .login-btn:hover {
+    background-color: #a66414;
+}
+
+/* Encabezado */
+.header-content {
+    color: white;
+    height: 25em;
+    padding-top: 10em;
+    text-align: center;
+    border-bottom-left-radius: 30px;
+    border-bottom-right-radius: 30px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    background-image: url('https://i.pinimg.com/originals/41/60/61/416061b9d95e206d7bbeb51e644cca6e.gif');
+    background-size: cover;
+    background-position: center; 
+    background-repeat: no-repeat; 
+}
+
+.header-content h2 {
+    font-size: 1.8em;
+    margin-top: 20px;
+}
+
+.header-content p {
+    font-size: 1.2em;
+    margin-top: 10px;
+}
+
+/* Contenedor de Desafíos */
+.challenges-container {
+    margin: 30px auto;
+    padding: 20px;
+    background-color: #2d4459;
+    color: #f0f4f8;
+    border-radius: 15px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    width: 90%;
+}
+
+.challenges-container ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.challenges-container li {
+    background-color: #426a8c;
+    margin: 10px 0;
+    padding: 15px;
+    border-radius: 10px;
+    border: 1px solid #f9fafb;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.challenges-container button {
+    background-color: #a66414;
+    color: white;
+    font-weight: 600;
+    padding: 8px 12px;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.challenges-container button:hover {
+    background-color: #81231e;
+}
+/*Personaje*/
+.caracter {
+    text-align: center;
+    margin: 20px auto;
+    background-color: #594b39;
+    color: #f4f0e5;
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    max-width: 400px;
+}
+
+.caracter h1 {
+    font-size: 1.5em;
+    color: #f4f0e5;
+    margin-bottom: 20px;
+}
+
+canvas {
+    /* border: 2px solid #403939; */
+    border-radius: 10px;
+    background-color: #594b39;
+    /* box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); */
+    margin: 20px auto;
+    display: block;
+    width: 250px; 
+    height: 250px;
+}
+
+.actions {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.actions button {
+    background-color: #81231e;
+    color: white;
+    font-weight: 600;
+    padding: 10px 20px;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    font-size: 1em;
+}
+
+.actions button:hover {
+    background-color: #a66414;
+    color: white;
+}
+
+
+/* Foro */
+.foro {
+    background-color: #151d26;
+    border-radius: 15px;
+    padding: 20px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    margin-top: 30px;
+    width: 80%;
+    margin: 0 auto;
+}
+
+.foro h3 {
+    text-align: center;
+    color: #f9fafb;
+    margin-bottom: 15px;
+}
+
+.foro-textarea {
+    width: 100%;
+    color: #f9fafb;
+    background-color: #304d73;
+    border: 1px solid #f9fafb;
+    border-radius: 10px;
+    font-size: 1em;
+    padding: 2px;
+    margin-bottom: 15px;
+}
+
+.btn-publicar {
+    background-color: #81231e;
+    color: white;
+    font-weight: 600;
+    padding: 10px 20px;
+    border-radius: 10px;
+    cursor: pointer;
+    display: block;
+    margin: 0 auto;
+    transition: background-color 0.3s;
+}
+
+.btn-publicar:hover {
+    background-color: #a66414;
+}
+
+/* Comentarios */
+.comentarios {
+    margin-top: 20px;
+    list-style: none;
+    padding: 0;
+}
+
+.comentario-item {
+    margin-bottom: 20px;
+}
+
+.comentario-box {
+    display: flex;
+    gap: 15px;
+    padding: 15px;
+    background-color: #304d73;
+    border: 1px solid #d1d5db;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.comentario-img {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+}
+
+.comentario-content {
+    flex: 1;
+}
+
+.comentario-username {
+    font-weight: bold;
+    color: #f9fafb;
+    margin-bottom: 5px;
+}
+
+.comentario-box p {
+    margin: 0;
+    font-size: 0.95em;
+    color: #fefefe;
+}
+
+
+/* Modal */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.4);
+  }
+
+  .modal-content {
+    background-color: #151d26;
+    border: 1px solid #f9fafb;
+    color: #f9fafb;
+    margin: 15% auto;
+    padding: 20px;
+    border-radius: 10px;
+    height: 310px;
+  }
+
+  .modal-content input[type="file"],
+  .modal-content textarea {
+    width: 100%;
+    margin: 10px 0;
+    border: 1px solid #f9fafb;
+    border-radius: 5px;
+    padding: 2px;
+    background-color: #304d73;
+    color: #f9fafb;
+  }
+
+  .modal-buttons {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+  }
+
+  .modal-buttons button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .modal-buttons {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+  }
+  
+  .modal-buttons button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+  }
+  
+  .modal-buttons .btn-submit {
+    background-color: #304d73; 
+    color: white;
+  }
+  
+  .modal-buttons .btn-submit:hover {
+    background-color: #81231e;
+  }
+  
+  .modal-buttons .btn-close {
+    background-color: #81231e;
+    color: white;
+  }
+  
+  .modal-buttons .btn-close:hover {
+    background-color: #a66414;
+  }
+  
+
+  .btn-publish {
+    background-color: #81231e;
+    color: white;
+  }
+
+  .btn-publish:hover{
+    background-color: #a66414;
+  }
+
+  .btn-cancel {
+    background-color: #a66414;
+    color: white;
+  }
+
+  .btn-cancel:hover{
+    background-color: #81231e;
+  }
+
+/* publicaciones */
+.op {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-top: 3em;
+    gap: 10px;
+} 
+
+.op-container {
+    display: grid;
+    padding: 10px;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
+    border-radius: 10px;
+    gap: 10px;
+    background-color: #151d26;
+}
+
+/* .op-container .op-post1 {
+    display: grid;
+    border-radius: 10px;
+    color: #f9fafb;
+    height: 13em;
+    width: 13em;
+    padding: 2px;
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: flex-end;
+} */
+
+.op-container .op-post1 {
+    display: flex;
+    border-radius: 10px;
+    color: #f9fafb;
+    height: 15em;
+    width: 15em;
+    padding: 2px;
+    background-size: cover;
+    background-position: center;
+    align-items: flex-end;
+    position: relative;
+}
+
+.op-container .op-post1 p {
+    margin: 2px; 
+    padding: 5px;
+    color: #f9fafb;
+    font-size: 0.9em;
+    line-height: 1.2em;
+    max-height: 4em; 
+    overflow: hidden; 
+    text-overflow: ellipsis; 
+    white-space: wrap; 
+    width: 100%; 
+    border-radius: 0 0 10px 10px; 
+    position: absolute;
+    bottom: 0; 
+    text-shadow: 
+        -1px -1px 0 #000,
+         1px -1px 0 #000, 
+        -1px  1px 0 #000,
+         1px  1px 0 #000; 
+}
+.foro {
+    display: flex;
+    flex-direction: column;
+    gap: 10px; /* Espacio entre los elementos */
+    margin-bottom: 3em;
+  }
+
+  .foto-perfil {
+    margin-bottom: 10px; /* Espacio debajo del input de archivo */
+  }
+
+  .foro-textarea {
+    margin-bottom: 10px; /* Espacio debajo del textarea */
+  }
+
+  .btn-publicar {
+    margin-top: 10px; /* Espacio encima del botón de publicar */
+  }
