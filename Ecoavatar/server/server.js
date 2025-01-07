@@ -1,34 +1,34 @@
 const express = require('express');
-const bodyParser = require('body-parser');
-const dotenv = require('dotenv');
+const mongoose = require('mongoose');
+const indexRoutes = require('./routes/indexRoutes')
+const cors = require('cors');
 const path = require('path');
-let cors = require('cors')
-// Configuración de variables de entorno
-dotenv.config();
-
+let port = 3000;
 const app = express();
-const PORT = process.env.PORT || 3000;
 
 // Middleware
-app.use(bodyParser.urlencoded({ extended: true }));
-app.use(bodyParser.json());
+app.use(express.json());
+app.use(cors());
 
 // Servir archivos estáticos
 app.use(express.static(path.join(__dirname, '../client')));
-
-// Ruta principal
-app.get('/', (req, res) => {
-    res.sendFile(path.join(__dirname, '../client/index.html')); // Ruta correcta al archivo HTML
-    
-});
 
 // Conexión a MongoDB
 mongoose.connect('mongodb://127.0.0.1:27017/ecoavatar', {
     useNewUrlParser: true,
     useUnifiedTopology: true,
-  });
+})
+.then(() => console.log('Conexión a MongoDB exitosa'))
+.catch((error) => console.error('Error al conectar a MongoDB:', error));
 
-// Iniciar servidor
-app.listen(PORT, () => {
-    console.log(`Servidor escuchando en http://localhost:${PORT}`);
+// Rutas
+// Aquí podrías añadir un archivo de rutas como `cancionesRoutes`
+// app.use('/api/canciones', cancionesRoutes);
+
+// Ruta para manejar todas las solicitudes no específicas y servir el archivo HTML principal
+app.get('*', (req, res) => {
+    res.sendFile(path.join(__dirname, '../client/index.html'));
 });
+
+
+app.listen(port, () => console.log(`Servidor escuchando en http://localhost:${port}`));
