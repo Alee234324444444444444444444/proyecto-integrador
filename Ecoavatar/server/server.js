@@ -1,6 +1,7 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const dotenv = require('dotenv');
+const path = require('path');
 
 // Configuración de variables de entorno
 dotenv.config();
@@ -13,11 +14,11 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
 // Servir archivos estáticos
-app.use(express.static('public'));
+app.use(express.static(path.join(__dirname, '../client')));
 
 // Ruta principal
 app.get('/', (req, res) => {
-    res.sendFile(__dirname + '/public/index.html'); // Enviar archivo HTML
+    res.sendFile(path.join(__dirname, '../client/index.html')); // Ruta correcta al archivo HTML
 });
 
 // Iniciar servidor
