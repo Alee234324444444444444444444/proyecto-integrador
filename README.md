@@ -17,3 +17,8 @@ Ejecutar Proyecto:
 ~~~
 npm run dev
 ~~~
+
+Nueva dependencia para cargar fotos:
+~~~
+npm install multer
+~~~
