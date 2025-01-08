@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Posts</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet"/>
+  </head>
+  <body>
+    <!-- Barra de navegación -->
+    <nav class="navbar">
+      <div class="navbar-brand">
+        <a href="/" class="logo">
+          <img src="images/logo.png" alt="logo" />
+        </a>
+      </div>
+      <ul class="navbar-links">
+        <li><a href="/">Inicio</a></li>
+        <li><a href="/posts">Publicaciones</a></li>
+        <li><a href="/">Desafíos</a></li>
+      </ul>
+      <div class="navbar-actions">
+        <a class="login-btn" href="/login">Iniciar Sesión</a>
+      </div>
+    </nav>
+
+    <!-- Encabezado -->
+    <div class="header-content">
+      <h1>¡Bienvenido a nuestro mundo!</h1>
+      <h2>
+          Explora y participa en desafíos que cuidan el planeta. ¡Haz tu impacto
+          positivo!
+      </h2>
+    </div>
+
+    <h1 style="text-align: center;">Publicaciones</h1>
+    <div id="posts-list"></div>
+
+    <script src="postsScript.js"></script>
+  </body>
+</html>

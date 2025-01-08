@@ -113,3 +113,57 @@ document.addEventListener("DOMContentLoaded", () => {
         textarea.value = "";
     });
 });
+
+
+// Función para abrir el modal al hacer clic en "Completar"
+function openChallengeModal(button) {
+    const desafioId = button.getAttribute('data-desafio-id');
+
+    document.getElementById('challengeModal').style.display = 'flex';
+
+    // Configurar el atributo de acción del formulario dinámicamente
+    const form = document.getElementById('challengeForm');
+    form.setAttribute('action', `/upload/${desafioId}`);
+}
+
+// Función para cerrar el modal
+function closeModal() {
+    const modal = document.getElementById('challengeModal');
+    modal.style.display = 'none'; // Cerrar el modal cambiando su estilo a 'none'
+}
+
+// Cuando se haga clic en "Subir Publicación"
+document.getElementById('submitPost').addEventListener('click', function () {
+    console.log('Subir Publicación clickeado');
+    const form = document.getElementById('challengeForm');
+    const formData = new FormData(form);
+
+    fetch(form.getAttribute('action'), {
+        method: 'POST',
+        body: formData,
+    })
+    .then(response => response.json())
+    .then(data => {
+        if (data.status === 'success') {
+            Swal.fire({
+                title: "¡Publicación creada exitosamente!",
+                text: "Gracias por tu contribución.",
+                icon: "success",
+                confirmButtonText: "OK",
+                timer: 2000,
+                showConfirmButton: false,
+                toast: true,
+                position: 'top-end'
+            });
+            closeModal(); 
+        } else {
+            Swal.fire({
+                title: "Error",
+                text: data.message || "Algo salió mal al procesar la publicación.",
+                icon: "error",
+                confirmButtonText: "Intentar nuevamente"
+            });
+        }
+    })
+    .catch(error => console.error('Error:', error));
+});

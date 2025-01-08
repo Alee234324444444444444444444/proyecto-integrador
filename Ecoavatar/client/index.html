@@ -3,21 +3,15 @@
     <head>
       <meta charset="UTF-8" />
       <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-      <title>MiProyecto</title>
+      <title>ecoAvatar</title>
       <link rel="stylesheet" href="styles.css">
       <link
         href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap"
         rel="stylesheet"
       />
-      <link rel="stylesheet" href="public/css/styles.css" />
       <script>
         const addPostUrl = "/add-post"; <!-- Reemplaza con la URL correspondiente -->
       </script>
-      <style>
-        a {
-          text-decoration: none;
-        }
-      </style>
     </head>
 
     <body>
@@ -25,12 +19,12 @@
       <nav class="navbar">
         <div class="navbar-brand">
           <a href="#" class="logo">
-            <img src="public/images/logo.png" alt="logo" />
+            <img src="images/logo.png" alt="logo" />
           </a>
         </div>
         <ul class="navbar-links">
           <li><a href="/">Inicio</a></li>
-          <li><a href="/publicaciones">Publicaciones</a></li>
+          <li><a href="/posts">Publicaciones</a></li>
           <li><a href="#challenges">Desafíos</a></li>
         </ul>
         <div class="navbar-actions">
@@ -72,10 +66,10 @@
       <!-- Modal para completar desafío -->
       <div id="challengeModal" class="modal">
         <div class="modal-content">
-          <h2 style="text-align: center;">¡Felicidades por completar el desafío!</h2>
-          <p>Sube una foto para demostrar que has completado el desafío.</p>
+          <h2 style="text-align: center;">Vamos a completar el desafío!</h2>
+          <p>Sube una foto para demostrar que lo has completado.</p>
 
-          <form id="challengeForm" enctype="multipart/form-data" action="/add-post" method="POST">
+          <form id="challengeForm" enctype="multipart/form-data" action="/upload" method="POST">
             <input type="file" name="photo" id="challengePhoto" accept="image/*" required />
             <textarea
               name="description"

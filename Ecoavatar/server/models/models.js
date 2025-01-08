@@ -9,9 +9,10 @@ const userSchema = new mongoose.Schema({
 
 // Post Schema
 const postSchema = new mongoose.Schema({
-  user: { type: mongoose.Schema.Types.ObjectId, ref: 'User', required: true },
+  // user: { type: mongoose.Schema.Types.ObjectId, ref: 'User', required: true },
   photo: { type: String, required: true },
   description: { type: String, required: true, maxlength: 75 },
+  desafioId : {type: String, required: true},
   created_at: { type: Date, default: Date.now },
 });
 
